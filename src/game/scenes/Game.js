@@ -65,14 +65,14 @@ export class Game extends Scene
                 p[1].y = nPos + this.pipes_separation
             }
 
-            this.physics.overlap(this.flappy, p[0], this.onCollide)
-            this.physics.overlap(this.flappy, p[1], this.onCollide)
+            this.physics.overlap(this.flappy, p[0], () => this.onCollide())
+            this.physics.overlap(this.flappy, p[1], () => this.onCollide())
         })
     }
 
     onCollide() {
-        console.log('ouch')
-        this.physics.pause();
+        console.log('ouch');
+        this.scene.start('GameOver');
     }
 
 }
