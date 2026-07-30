@@ -5,7 +5,7 @@ export class Game extends Scene
 {
     /** @type { Phaser.GameObjects.Image } */
     image = null
-    
+
     constructor ()
     {
         super('Game');
@@ -13,19 +13,23 @@ export class Game extends Scene
 
     init() 
     {
-        this.image = this.add.image(500, 500, 'flappy')
-        this.image.setScale(0.1, 0.1)
     }
 
     create ()
     {
+        this.image = this.physics.add.image(500, 500, 'flappy');
+        this.image.setScale(0.1, 0.1);
+
         EventBus.emit('current-scene-ready', this);
+
         this.input.keyboard.on('keydown', e => {
-            if(e.code === 'Space') {
-                if(this.image)
-                    this.image.setPosition(this.image.x, this.image.y - 1)
+            if (e.code === 'Space') {
+                this.image.body.setVelocityY(-400);
             }
-        })
+        });
+    }
+
+    update(time, delta) { 
     }
 
 }
