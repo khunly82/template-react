@@ -5,6 +5,7 @@ export class Game extends Scene
 {
     /** @type { Phaser.GameObjects.Image } */
     image = null
+    
     constructor ()
     {
         super('Game');
