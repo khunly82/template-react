@@ -38,8 +38,6 @@ export class Game extends Scene
             p[0].body.setAllowGravity(false)
             p[1].body.setAllowGravity(false)
             p[0].setRotation(Math.PI)
-
-            
         })
 
         EventBus.emit('current-scene-ready', this);
